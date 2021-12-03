@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,7 +22,12 @@ class MainActivity : AppCompatActivity() {
         loginBtn = findViewById(R.id.loginBtn)
 
         loginBtn.setOnClickListener {
-            val intent = Intent(this,  HomeActivity::class.java)
+            if(emailInput.toString() == "pepe@correo.com" && passwordInput.toString() == "pacopaco") {
+                val intent = Intent(this,  HomeActivity::class.java)
+                Toast.makeText(this, "Bienvenido, usuario", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "Datos erroneos", Toast.LENGTH_LONG).show()
+            }
         }
 
     }

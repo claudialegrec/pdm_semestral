@@ -35,12 +35,10 @@ class UserProfileActivity : AppCompatActivity() {
         userFoto = findViewById(R.id.userFoto)
         backBtn = findViewById(R.id.backBtn)
 
-//        backBtn.setOnClickListener {
-//            val intent = Intent(this,  Ubicacion::class.java)
-//
-//            intent.putExtra("Coo",  (latitud + "/" +longitud)  )
-//            startActivity(intent)
-//        }
+        backBtn.setOnClickListener {
+            val intent = Intent(this,  PeopleInfo::class.java)
+            startActivity(intent)
+        }
 
         val url = "https://gist.githubusercontent.com/claudialegrec/0328c8178834d9339cbe32a444460520/raw/3de60c7ab163e079ec80234ac27fa97c14a93479/UserProfile.json"
         val queue = Volley.newRequestQueue(this)
