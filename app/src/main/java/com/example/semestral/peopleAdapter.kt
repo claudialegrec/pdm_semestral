@@ -40,19 +40,11 @@ class peopleAdpter (private val mContext: Context, private val listPeople: List<
             itemName.text = person.name
 
             val profilePicture = person.picture
-            val Latitud = person.latitud
+            val latitud = person.latitud
             val longitud = person.longitud
             val base64Image: String = profilePicture.split(",").get(1)
             val decodedString = Base64.decode(base64Image, Base64.DEFAULT)
             val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
-
-
-            gpsButton.setOnClickListener{
-                val intent = Intent(this,  MapsActivity::class.java)
-                Log.d("Button", "Se toco el boton de WebServicesActivity")
-                intent.putExtra("Coordenates",  (latitud.toString() +"," +longitud.toString())  )
-                startActivity(intent)
-            }
 
             imageView.setImageBitmap(decodedByte)
 
