@@ -37,9 +37,17 @@ class UserProfileActivity : AppCompatActivity() {
         etEmail = findViewById(R.id.etEmail)
         userFoto = findViewById(R.id.userFoto)
         backBtn = findViewById(R.id.backBtn)
+        ubiBtn = findViewById(R.id.ubiBtn)
 
         backBtn.setOnClickListener {
             val intent = Intent(this,  HomeActivity::class.java)
+            startActivity(intent)
+        }
+
+        ubiBtn.setOnClickListener {
+            val intent = Intent(this,  MapsActivity::class.java)
+
+            intent.putExtra("Coo",  (latitud + "/" +longitud)  )
             startActivity(intent)
         }
 
@@ -68,14 +76,6 @@ class UserProfileActivity : AppCompatActivity() {
             Response.ErrorListener {
                 Log.d("error", "Algo salio mal")
             })
-
-        ubiBtn.setOnClickListener {
-            val intent = Intent(this,  MapsActivity::class.java)
-
-            intent.putExtra("Coo",  (latitud + "/" +longitud)  )
-            startActivity(intent)
-        }
-
         queue.add(stringRequest)
     }
 }

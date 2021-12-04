@@ -12,9 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Semestral">
-        <activity
-            android:name=".peopleAdapter"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -27,8 +25,9 @@
         <activity
             android:name=".HomeActivity"
             android:exported="true" />
+
         <activity
-            android:name=".MapsActivity"
+            android:name=".UserProfileActivity"
             android:exported="true" />
 
         <activity
