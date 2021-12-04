@@ -6,4 +6,6 @@ class UserInfo(
     var apellidos: String? = null,
     var telefono: String? = null,
     var email: String? = null,
+    var latitud: String? = null,
+    var longitud: String? = null
 ) {}
