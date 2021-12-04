@@ -20,7 +20,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         Listweb = findViewById(R.id.listViewWebService)
-        var url = "https://gist.githubusercontent.com/AlfredoGarciaYapor/34113c8ffd86610f1a08e4d5eb4ebb6f/raw/f6e3483077a34db546fc0226552a5bc1eb14460c/business.json"
+        var url = "https://gist.githubusercontent.com/AlfredoGarciaYapor/dbf3334ed5f95fcc4972e6ea89f4ad1b/raw/24f771dfb0e45e3c1c902487e1bbb040485931da/examenFinalpdm.json"
         val queue = Volley.newRequestQueue(this)
         val stringRequest = StringRequest(
             Request.Method.GET, url, Response.Listener { response ->
