@@ -21,7 +21,10 @@ class UserProfileActivity : AppCompatActivity() {
     private lateinit var etEmail: EditText
     private lateinit var userFoto: ImageView
     private lateinit var backBtn: Button
+    private lateinit var ubiBtn: Button
 
+    private var latitud: String? = null
+    private var longitud: String? = null
     private var foto: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,23 +39,25 @@ class UserProfileActivity : AppCompatActivity() {
         backBtn = findViewById(R.id.backBtn)
 
         backBtn.setOnClickListener {
-            val intent = Intent(this,  PeopleInfo::class.java)
+            val intent = Intent(this,  HomeActivity::class.java)
             startActivity(intent)
         }
 
-        val url = "https://gist.githubusercontent.com/claudialegrec/0328c8178834d9339cbe32a444460520/raw/3de60c7ab163e079ec80234ac27fa97c14a93479/UserProfile.json"
+        val url = "https://gist.githubusercontent.com/claudialegrec/0328c8178834d9339cbe32a444460520/raw/bea5ad580f1d3c07f39e122ac63b8abaf2536a8c/UserProfile.json"
         val queue = Volley.newRequestQueue(this)
         val stringRequest = StringRequest(
             com.android.volley.Request.Method.GET, url, Response.Listener { response ->
                 Log.d("response","La respuesta es ${response}")
 
-                val contact = Gson().fromJson(response, UserInfo::class.java)
+                val user = Gson().fromJson(response, UserInfo::class.java)
 
-                etNombre.setText(contact.nombre)
-                etApellidos.setText(contact.apellidos)
-                etTelefono.setText(contact.telefono)
-                etEmail.setText(contact.email)
-                foto = contact.imagenid
+                etNombre.setText(user.nombre)
+                etApellidos.setText(user.apellidos)
+                etTelefono.setText(user.telefono)
+                etEmail.setText(user.email)
+                latitud = user.latitud
+                longitud = user.longitud
+                foto = user.imagenid
 
                 val profilePicture = foto
                 val base64Image: String = profilePicture!!.split(",").get(1)
@@ -63,6 +68,14 @@ class UserProfileActivity : AppCompatActivity() {
             Response.ErrorListener {
                 Log.d("error", "Algo salio mal")
             })
+
+        ubiBtn.setOnClickListener {
+            val intent = Intent(this,  MapsActivity::class.java)
+
+            intent.putExtra("Coo",  (latitud + "/" +longitud)  )
+            startActivity(intent)
+        }
+
         queue.add(stringRequest)
     }
 }
