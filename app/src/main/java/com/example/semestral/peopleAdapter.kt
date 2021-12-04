@@ -39,29 +39,15 @@ class peopleAdpter (private val mContext: Context, private val listPeople: List<
         gpsButton = layout.findViewById(R.id.gpsBtn)
         itemName.text = person.name
 
-        val profilePicture = person.picture
-        val Latitud = person.latitud
-        val longitud = person.longitud
-        val base64Image: String = profilePicture.split(",").get(1)
-        val decodedString = Base64.decode(base64Image, Base64.DEFAULT)
-        val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
 
+            val profilePicture = person.picture
+//            val latitud = person.latitud
+//            val longitud = person.longitud
+//            val base64Image: String = profilePicture.split(",").get(1)
+//            val decodedString = Base64.decode(base64Image, Base64.DEFAULT)
+//            val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
 
-//            gpsButton.setOnClickListener{
-////                val intent = Intent(this, MapsActivity::class.java).apply{
-////
-////                }
-//
-//            }
-//        gpsButton.setOnClickListener{
-//            val intent = Intent(this ,  MapsActivity::class.java)
-//
-//            Log.d("Button", "Se toco el boton de WebServicesActivity")
-//            intent.putExtra("Coordenates",  (Latitud.toString() +"/" +longitud.toString()))
-//            startActivity(intent)
-//        }
-
-        imageView.setImageBitmap(decodedByte)
+//            imageView.setImageBitmap(decodedByte)
 
         itemName.text = person.name
         itemPhone.text = person.phone
