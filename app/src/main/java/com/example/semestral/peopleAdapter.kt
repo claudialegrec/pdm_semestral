@@ -36,18 +36,18 @@ class peopleAdpter (private val mContext: Context, private val listPeople: List<
         itemAddress = layout.findViewById(R.id.itemAddress)
         itemDescription = layout.findViewById(R.id.itemDescription)
         imageView = layout.findViewById(R.id.imageViewPeople)
-        gpsButton = layout.findViewById(R.id.gpsBtn)
+//        gpsButton = layout.findViewById(R.id.gpsBtn)
         itemName.text = person.name
 
 
             val profilePicture = person.picture
 //            val latitud = person.latitud
 //            val longitud = person.longitud
-//            val base64Image: String = profilePicture.split(",").get(1)
-//            val decodedString = Base64.decode(base64Image, Base64.DEFAULT)
-//            val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
+            val base64Image: String = profilePicture.split(",").get(1)
+            val decodedString = Base64.decode(base64Image, Base64.DEFAULT)
+            val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
 
-//            imageView.setImageBitmap(decodedByte)
+            imageView.setImageBitmap(decodedByte)
 
         itemName.text = person.name
         itemPhone.text = person.phone
